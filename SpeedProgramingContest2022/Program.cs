@@ -56,8 +56,9 @@
         if (@in == m)
         {
             TimeSpan el = DateTime.Now - d;
-            Console.WriteLine(m + ": Ellapsed: " + el);
-            File.AppendAllText(fp, m + ": Ellapsed: " + el + Environment.NewLine);
+            string msg = m + ": Ellapsed: " + el;
+            Console.WriteLine(msg);
+            File.AppendAllText(fp, msg + Environment.NewLine);
         }
     }
 
