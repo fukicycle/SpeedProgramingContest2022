@@ -1,11 +1,16 @@
 ﻿class Program
 {
     private static DateTime t;
+    private static string fp = "";
+    private static int lv = 100000000;
 
     static void Main(string[] args)
     {
         t = DateTime.Now;
-        for (int i = 0; i <= int.MaxValue; i++)
+        int c = new DirectoryInfo(Environment.CurrentDirectory).GetFiles().Where(a => a.Name.StartsWith("result")).Count();
+        fp = $"result{c + 1}.txt";
+        File.AppendAllText(fp, $"Start program! - Limit value {lv}{Environment.NewLine}");
+        for (int i = 0; i <= lv; i++)
         {
             me(i);
         }
@@ -15,9 +20,9 @@
 
     private static void me(int @in)
     {
-        List<int> i = new List<int>();
         int l = 1;
         int k = 10;
+        int x = 0;
 
         while (true)
         {
@@ -25,18 +30,21 @@
             l++;
             k = k * 10;
         }
-
+        int[] i = new int[l];
         int t = @in;
         while (k >= 1)
         {
             if (t >= k)
-                i.Add(t / k);
+            {
+                i[x] = (t / k);
+                x++;
+            }
             t = t % k;
             k = k / 10;
         }
 
         int m = 0;
-        for (int n = 0; n <= i.Count - 1; n++)
+        for (int n = 0; n < i.Length; n++)
         {
             m += P(i[n], l);
         }
@@ -45,6 +53,7 @@
         {
             TimeSpan el = DateTime.Now - Program.t;
             Console.WriteLine(m + ": Ellapsed: " + el);
+            File.AppendAllText(fp, m + ": Ellapsed: " + el + Environment.NewLine);
         }
     }
 

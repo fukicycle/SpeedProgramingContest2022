@@ -10,7 +10,8 @@ autom4te.cache/
 *.tar.gz
 tarballs/
 test-results/
-
+# result files
+result*.txt
 # Mac bundle stuff
 *.dmg
 *.app
