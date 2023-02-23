@@ -24,9 +24,8 @@
         int k = 10;
         int x = 0;
 
-        while (true)
+        while (@in >= k)
         {
-            if (@in < k) break;
             l++;
             k = k * 10;
         }
