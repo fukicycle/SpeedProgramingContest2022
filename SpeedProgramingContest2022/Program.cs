@@ -50,11 +50,8 @@
 
     private static int P(int @in, int l)
     {
-        int o = @in;
-        for (int i = 1; i < l; i++)
-        {
-            @in = @in * o;
-        }
+        int a = @in;
+        for (int i = 1; i < l; i++) @in = @in * a;
         return @in;
     }
 }
